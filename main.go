@@ -2,12 +2,17 @@ package main
 
 import (
 	"fmt"
+	"go-learn/controller"
 	"go-learn/router"
 	"log"
 	"net/http"
 )
 
 func main() {
+
+	if err := controller.Initialize(); err != nil {
+		log.Fatalf("Failed to initialize todo data: %v", err)
+	}
 
 	router := router.InitializeRouter()
 
